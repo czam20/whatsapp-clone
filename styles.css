@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.container {
+    color: #aebac1;
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100vw;
+    height: 100vh;
+}
+
+.left {
+    background-color: #111B21;
+    border-right: 1px solid rgba(134, 150, 160, 0.15);
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+}
+
+.header {
+    background-color: #202C33;
+    display: flex;
+    height: 60px;
+    padding: 10px 16px;
+    width: 100%;
+}
+
+.user-img-container {
+    flex-grow: 2;
+    overflow: hidden;
+}
+
+.user-img {
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 100%;
+}
+
+.btn-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    color: #aebac1;
+    cursor: pointer;
+    font-size: 18px;
+    height: 40px;
+    padding: 5px;
+    width: 40px;
+}
+
+.form-container {
+    border-bottom: 1px solid rgba(134, 150, 160, 0.15);
+    padding: 8px 16px;
+    position: relative;
+}
+
+.input {
+    background-color: #202C33;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    width: 100%;
+    height: 2.2rem;
+    padding-left: 65px;
+}
+
+.input:focus {
+    outline: none;
+    color: white;
+}
+
+.form-container .btn {
+    font-size: 14px;
+    position: absolute;
+    left: 5%;
+    bottom: 5%;
+}
+
+.chat-list {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.chat-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chat-list::-webkit-scrollbar-thumb {
+    background-color: #374045;
+}
+
+.chat-list__item {
+    display: flex;
+    height: 70px;
+    width: 100%;
+}
+
+.chat-list__item:hover {
+    background-color: #23323b;
+}
+
+.chat-img {
+    padding: 10px 15px;
+}
+
+.chat-details {
+    border-bottom: 1px solid rgba(134, 150, 160, 0.15);
+    cursor: pointer;
+    padding: 10px 15px 10px 0;
+    width: 100%;
+}
+
+.chat-details>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.name {
+    color: white;
+    font-size: 17px;
+}
+
+.time {
+    font-size: 12px;
+}
+
+.message {
+    color: white;
+    font-size: 14px;
+}
+
+.icon {
+    font-size: 15px;
+}
+
+.chat-container {
+    background-color: #0b141a;
+    width: 100%;
+}
