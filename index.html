@@ -13,39 +13,71 @@
 <body>
     <div class="container flex">
         <div class="left">
-            <header class="header">
-                <div class="user-img-container">
-                    <img src="https://i.pinimg.com/originals/91/0b/66/910b66b698ca109111bb4caeead6334b.jpg" class="user-img">
-                </div>
-                <div class="btn-container">
-                    <button type="button" class="btn history-btn"><i class="fas fa-history"></i></button>
-                    <button class="btn init-chat-btn"><i class="fas fa-comment-alt"></i></button>
-                    <button class="btn menu-btn"><i class="fas fa-ellipsis-v"></i></button>
-                </div>
-            </header>
-            <div class="form-container">
-                <form class="form">
-                    <input type="text" name="search-chat" id="search-chat" placeholder="Busca un chat o inicia uno nuevo" class="input search">
-                    <button class="btn search-btn"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-            <div class="chat-list-preview">
-                <div class="chat-preview">
-                    <div class="chat-preview__img">
-                        <img src="https://i.pinimg.com/originals/1d/93/34/1d9334648e5d69b9b4bdd1921dc40008.jpg" alt="" class="user-img">
+            <div class="preview" id="preview">
+                <header class="header">
+                    <div class="user-img-container">
+                        <img src="https://i.pinimg.com/originals/91/0b/66/910b66b698ca109111bb4caeead6334b.jpg" class="user-img" id="user-profile">
                     </div>
-                    <div class="chat-preview__details">
-                        <div>
-                            <span class="name">Gatito</span>
-                            <span class="time">10:30 pm</span>
+                    <div class="btn-container">
+                        <button type="button" class="btn history-btn"><i class="fas fa-history"></i></button>
+                        <button class="btn init-chat-btn"><i class="fas fa-comment-alt"></i></button>
+                        <button class="btn menu-btn"><i class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </header>
+                <div class="form-container">
+                    <form class="form">
+                        <input type="text" name="search-chat" id="search-chat" placeholder="Busca un chat o inicia uno nuevo" class="input search">
+                        <button class="btn search-btn"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="chat-list-preview">
+                    <div class="chat-preview">
+                        <div class="chat-preview__img">
+                            <img src="https://i.pinimg.com/originals/1d/93/34/1d9334648e5d69b9b4bdd1921dc40008.jpg" alt="" class="user-img">
                         </div>
-                        <div>
+                        <div class="chat-preview__details">
                             <div>
-                                <span class="icon check"><i class="fas fa-check-double"></i></span>
-                                <span class="message">Holiii</span>
+                                <span class="name">Gatito</span>
+                                <span class="time">10:30 pm</span>
                             </div>
-                            <span class="icon pin"><i class="fas fa-thumbtack"></i></span>
+                            <div>
+                                <div>
+                                    <span class="icon check"><i class="fas fa-check-double"></i></span>
+                                    <span class="message">Holiii</span>
+                                </div>
+                                <span class="icon pin"><i class="fas fa-thumbtack"></i></span>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-details hidden" id="user-profile-details">
+                <header class="header">
+                    <button class="btn" id="back"><i class="far fa-arrow-left"></i></button>
+                    <h2 class="profile__title">Profile</h2>
+                </header>
+                <div class="profile-img">
+                    <figure>
+                        <img src="https://i.pinimg.com/originals/91/0b/66/910b66b698ca109111bb4caeead6334b.jpg" class="user-img">
+                        <div class="profile-img__hover">
+                            <button class="btn"><i class="fas fa-camera-alt"></i></button>
+                            <span>Change profile picture</span>
+                        </div>
+                    </figure>
+                </div>
+                <div class="info">
+                    <label for="user-name">Your name</label>
+                    <div class="edit-info">
+                        <textarea name="user-name" id="edit-name" class="textarea" disabled>Michi</textarea>
+                        <button class="btn" id="edit-name-btn"><i class="fas fa-pen"></i></button>
+                    </div>
+                </div>
+                <div class="info">
+                    <label for="user-info">Info.</label>
+                    <div class="edit-info">
+                        <textarea name="user-info" id="edit-info" class="textarea" disabled>:3</textarea>
+                        <button class="btn" id="edit-info-btn"><i class="fas fa-pen"></i></button>
                     </div>
                 </div>
             </div>
@@ -71,5 +103,7 @@
         </div>
     </div>
 </body>
+
+<script src="main.js"></script>
 
 </html>
