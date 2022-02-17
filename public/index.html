@@ -104,37 +104,52 @@
         </div>
     </div>
     <div class="container auth">
-        <div class="modal login active">
-            <form class="loginSubmit">
-                <h3>LOGIN</h3>
-                <div class="form-input">
-                    <label for="email-login">Email</label>
-                    <input type="email" id="email-login" name="email" >
+        <div class="modal">
+            <div class="auth-title">
+                <div class="login-title">
+                    <h3>LOGIN</h3>
                 </div>
-                <div class="form-input">
-                    <label for="password-login">Password</label>
-                    <input type="password" id="password-login" name="password" >
+                <div class="register-title">
+                    <h3>REGISTER</h3>
                 </div>
-                <button type="submit">Login</button>
-                <span class="toggle-register">or Register instead</span>
-            </form>
-        </div>
-        <div class="modal register">
-            <form class="registerSubmit">
-                <h3>REGISTER</h3>
-                <div class="form-input">
-                    <label for="email-register">Email</label>
-                    <input type="email" id="email-register" name="email" >
+            </div>
+            <div class="auth-form-container">
+                <div class="toggle-control">
+                    <label class="toggle toggle-login">Login</label>
+                    <label class="toggle toggle-register">Register</label>
+                    <div class="toggle-tab"></div>
                 </div>
-                <div class="form-input">
-                    <label for="password-register">Password</label>
-                    <input type="password" id="password-register" name="password" >
+                <div class="auth-form-inner">
+                    <div class="auth-form login" id="login">
+                        <form class="loginSubmit ">
+                            <div class="form-input">
+                                <input type="email" id="email-login" name="email" class="input" placeholder="Email">
+                            </div>
+                            <div class="form-input">
+                                <input type="password" id="password-login" name="password" class="input" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-auth">Login</button>
+                        </form>
+                    </div>
+                    <div class="auth-form register">
+                        <form class="registerSubmit ">
+                            <div class="form-input">
+                                <input type="email" id="email-register" name="email" class="input" placeholder="Email">
+                            </div>
+                            <div class="form-input">
+                                <input type="password" id="password-register" name="password" class="input" placeholder="Password">
+                            </div>
+
+                            <button type="submit" class="btn btn-auth">Register</button>
+                        </form>
+                    </div>
                 </div>
 
-                <button type="submit">Register</button>
-                <span class="toggle-login">or Login instead</span>
-            </form>
+
+            </div>
+
         </div>
+
     </div>
     <script type="module" src="js/auth.js"></script>
     <script src="js/main.js"></script>

@@ -326,21 +326,119 @@
 }
 
 .container.auth.active {
+    background-color: #0b141a;
     width: 100%;
     height: 100vh;
     display: grid;
     place-items: center;
 }
 
-.modal {
-    display: none;
-}
 
-.modal.active {
-    display: flex;
+/* .modal {
+    display: none;
+} */
+
+.modal {
+    background-color: #202C33;
     padding: 50px;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px rgb(92, 92, 92);
+    box-shadow: 3px 3px 10px rgb(92, 92, 92);
+    height: 60vh;
+    min-width: 20vw;
+    overflow: hidden;
+}
+
+.auth-title {
+    display: flex;
+    width: 200%;
+}
+
+.auth-title div {
+    width: 50%;
+    transition: margin .6s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+}
+
+.auth-title div h3 {
+    font-size: 34px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.auth-title.s-register .login-title {
+    margin-left: -50%;
+}
+
+.auth-form-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.toggle-control {
+    border: 1px solid #374045;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    margin: 10px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.toggle-control .toggle {
+    color: #aebac1;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 48px;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.toggle-control .toggle-tab {
+    background-color: rgb(159, 12, 196);
+    border-radius: 10px;
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    left: 0;
+    z-index: 0;
+    transition: all .6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.toggle-control.s-register .toggle-tab {
+    left: 50%;
+}
+
+.toggle-control.s-register .toggle-register {
+    color: #fff;
+}
+
+.toggle-control .toggle-login {
+    color: #fff;
+}
+
+.toggle-control.s-register .toggle-login {
+    color: #aebac1;
+}
+
+.auth-form-inner {
+    display: flex;
+    width: 200%;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    transition: margin .6s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+}
+
+.login.s-register {
+    margin-left: -50%;
 }
 
 .form-input {
@@ -348,6 +446,30 @@
     flex-direction: column;
 }
 
-.form-input label {
-    color: black;
+.form-input .input {
+    background-color: transparent;
+    border-bottom: 2px solid #374045;
+    border-radius: 0;
+    text-align: center;
+    transition: border-bottom 200ms ease-in;
+    margin-bottom: 25px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-input .input:focus {
+    border-bottom: 2px solid rgb(159, 12, 196);
+    transition: border-bottom 200ms ease-in;
+}
+
+.btn-auth {
+    border-radius: 10px;
+    width: 100%;
+    background-color: rgb(159, 12, 196);
+    color: #fff;
+}
+
+.btn-auth:hover {
+    background-color: rgba(159, 12, 196, 0.6);
 }
