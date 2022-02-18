@@ -18,11 +18,20 @@
                     <div class="user-img-container">
                         <img src="https://i.pinimg.com/originals/91/0b/66/910b66b698ca109111bb4caeead6334b.jpg" class="user-img" id="user-profile">
                     </div>
-                    <div class="btn-container">
-                        <button type="button" class="btn history-btn"><i class="fas fa-history"></i></button>
-                        <button class="btn init-chat-btn"><i class="fas fa-comment-alt"></i></button>
-                        <button class="btn menu-btn"><i class="fas fa-ellipsis-v"></i></button>
-                    </div>
+                    <ul class="btn-container">
+                        <li>
+                            <button type="button" class="btn history-btn"><i class="fas fa-history"></i></button>
+                        </li>
+                        <li>
+                            <button class="btn init-chat-btn"><i class="fas fa-comment-alt"></i></button>
+                        </li>
+                        <li class="menu" id="menu">
+                            <button class="btn menu-btn"><i class="fas fa-ellipsis-v"></i></button>
+                            <ul class="menu-nesting">
+                                <li class="menu__item" id="logout-btn">Logout</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </header>
                 <div class="form-container">
                     <form class="form">
@@ -91,7 +100,6 @@
                 <div class="chat__btn">
                     <button class="btn search-btn"><i class="fas fa-search"></i></button>
                     <button class="btn menu-btn"><i class="fas fa-ellipsis-v"></i></button>
-                    <button class="btn logout-btn">logout</i></button>
                 </div>
             </header>
             <div class="chat-content"></div>

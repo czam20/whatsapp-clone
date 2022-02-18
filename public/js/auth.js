@@ -108,12 +108,19 @@ loginForm.addEventListener('submit', (e) => {
         });
 })
 
-const logoutButton = document.querySelector(".logout-btn")
+const logoutButton = document.querySelector("#logout-btn")
 
 logoutButton.addEventListener("click", () => {
 
     signOut(auth)
 
+})
+
+
+const menu = document.querySelector("#menu")
+
+menu.addEventListener("click", () => {
+    menu.classList.toggle("active")
 })
 
 const toggleModal = (modalClass) => {
