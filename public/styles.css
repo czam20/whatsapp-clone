@@ -12,6 +12,10 @@
     display: none;
 }
 
+.container.flex {
+    background-color: #0b141a;
+}
+
 .container.active {
     display: flex;
 }
@@ -145,8 +149,8 @@
 .chat-list-preview {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    overflow-y: scroll;
+    height: 80vh;
+    overflow-y: auto;
 }
 
 .chat-list-preview::-webkit-scrollbar {
@@ -201,28 +205,22 @@
     font-size: 15px;
 }
 
-.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.profile-details__show {
-    opacity: 1;
-    pointer-events: unset;
-    transition: opacity .5s;
-}
-
 .profile-details {
+    background-color: #111B21;
     display: flex;
     flex-direction: column;
-    transition: opacity 200ms ease;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    /* opacity: 0; */
-    /* pointer-events: none; */
+    transform: translateX(-100%);
+    transition: transform .4s ease-in-out;
+    z-index: 1;
+}
+
+.profile-details.show {
+    transform: translateX(0%);
 }
 
 .profile-details .header {
@@ -237,13 +235,29 @@
     margin: 8px 15px;
 }
 
-.profile-img {
+.profile-details .profile-img {
     display: flex;
     height: 200px;
     justify-content: center;
     margin: 20px 0;
     padding: 0 10px;
     width: 100%;
+}
+
+.profile-details.show .profile-img {
+    animation: circle .8s cubic-bezier(.1, .82, .25, 1);
+    animation-delay: .1s;
+    animation-fill-mode: both;
+}
+
+@keyframes circle {
+    0%,
+    20% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .profile-img figure {
@@ -268,23 +282,33 @@
     visibility: hidden;
 }
 
-
-/* @media screen and (max-width:800px) {
-    .profile-img {
-        height: 150px;
-    }
-} */
-
 .profile-img figure:hover>.profile-img__hover {
     opacity: 1;
     visibility: visible;
     transition: all 200ms ease;
 }
 
-.info {
+.profile-details .info {
     display: flex;
     flex-direction: column;
     padding: 10px 20px;
+}
+
+.profile-details.show .info {
+    animation: info 1s cubic-bezier(.1, .82, .25, 1);
+    animation-delay: .1s;
+}
+
+@keyframes info {
+    0%,
+    20% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .info label {
@@ -303,7 +327,7 @@
     bottom: 0;
     position: absolute;
     z-index: 10000;
-    /* transition: all 200ms ease; */
+    transition: all 200ms ease;
 }
 
 .textarea {
@@ -320,12 +344,29 @@
     outline: none;
 }
 
+.info-profile {
+    border-bottom: none;
+    transition: border 200ms ease;
+}
+
+.info-profile.active {
+    border-bottom: 2px solid rgb(159, 12, 196);
+}
+
 .chat-container {
     background-color: #0b141a;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .1s;
+}
+
+.chat-container.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 .chat {
