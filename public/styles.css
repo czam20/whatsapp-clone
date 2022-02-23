@@ -411,12 +411,9 @@
     height: 100vh;
     display: grid;
     place-items: center;
+    position: relative;
+    overflow: hidden;
 }
-
-
-/* .modal {
-    display: none;
-} */
 
 .modal {
     background-color: #202C33;
@@ -552,4 +549,58 @@
 
 .btn-auth:hover {
     background-color: rgba(159, 12, 196, 0.6);
+}
+
+.snackbar-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.snackbar {
+    background-color: #202C33;
+    border-left: 5px solid rgb(236, 40, 66);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin: 1px 0;
+    visibility: visible;
+    animation: snackbar-in .5s, snackbar-out .5s 4.5s;
+    animation-fill-mode: forwards;
+    z-index: 1;
+}
+
+@keyframes snackbar-in {
+    0%,
+    20% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes snackbar-out {
+    0%,
+    20% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.snackbar .msg {
+    display: block;
+    font-size: 18px;
+    padding: 5px;
+    margin-bottom: 5px;
 }

@@ -54,12 +54,10 @@ toggleRegister.addEventListener('click', () => {
 })
 
 toggleLogin.addEventListener('click', () => {
-        document.querySelector("#login").classList.remove('s-register')
-        document.querySelector(".auth-title").classList.remove('s-register')
-        document.querySelector(".toggle-control").classList.remove('s-register')
-    })
-    // toggleRegister.addEventListener( 'click', () => toggleModal("register") )
-    // toggleLogin.addEventListener( 'click', () => toggleModal("login") )
+    document.querySelector("#login").classList.remove('s-register')
+    document.querySelector(".auth-title").classList.remove('s-register')
+    document.querySelector(".toggle-control").classList.remove('s-register')
+})
 
 const registerForm = document.querySelector(".registerSubmit")
 const loginForm = document.querySelector(".loginSubmit")
@@ -76,12 +74,11 @@ registerForm.addEventListener('submit', (e) => {
             const user = userCredential.user;
             sendEmailVerification(auth.currentUser)
             console.log("it works, user", user)
-
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.error(error)
+            snackbar(errorMessage)
         });
 
 })
@@ -97,48 +94,42 @@ loginForm.addEventListener('submit', (e) => {
     signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-
             console.log("it works, user", user)
 
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.error(error)
+            snackbar(errorMessage)
         });
 })
 
 const logoutButton = document.querySelector("#logout-btn")
 
-logoutButton.addEventListener("click", () => {
-
-    signOut(auth)
-
-})
-
+logoutButton.addEventListener("click", () => signOut(auth))
 
 const menu = document.querySelector("#menu")
-
 menu.addEventListener("click", () => {
     menu.classList.toggle("active")
 })
 
-const toggleModal = (modalClass) => {
+const snackbar = (msg) => {
+    const _snackbar = document.createElement('div')
+    _snackbar.setAttribute('class', 'snackbar')
 
-    const modals = document.querySelectorAll(`.modal`)
+    const _msg = document.createElement('span')
+    _msg.setAttribute('class', 'msg')
+    _msg.innerText = msg
 
-    modals.forEach((mod) => {
+    const btn = document.createElement('button')
+    btn.setAttribute('class', 'btn')
+    btn.innerHTML = `<i class="fas fa-times-circle"></i>`
+    btn.onclick = () => document.querySelector('.snackbar-container').removeChild(_snackbar)
 
-        if (mod.classList.contains(modalClass)) {
+    _snackbar.append(_msg, btn)
+    document.querySelector('.snackbar-container').append(_snackbar)
 
-            mod.classList.add("active")
-
-        } else {
-
-            mod.classList.remove("active")
-        }
-
-    })
-
-
+    setTimeout(() => {
+        document.querySelector('.snackbar-container').removeChild(_snackbar)
+    }, 5000)
 }
